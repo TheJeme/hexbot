@@ -35,6 +35,5 @@ def main():
 if __name__ == "__main__":
     r.incr('count')
     color_number = int(r.get("count"))
-    f.close()
     main()
 
