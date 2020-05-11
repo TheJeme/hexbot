@@ -24,8 +24,12 @@ def main():
         for i in range(format_length): #Adds 0 if needed
             hex_number = "0" + hex_number
 
-        media_url = f"http://www.singlecolorimage.com/get/{hex_number}/500x500.png" # Path to image
-        urllib.request.urlretrieve(media_url, "temp_image.jpg")
+        media_url = f"http://www.singlecolorimage.com/get/{hex_number}/500x500.png"
+        try:
+            urllib.request.urlretrieve(media_url, "temp_image.jpg")
+        except urllib.error.HTTPError:
+            print(f"Hex value: {hex_number}")
+            raise
 
         api.update_with_media("temp_image.jpg", status="#" + hex_number)
         print(media_url)
