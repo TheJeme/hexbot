@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 
 
-## Config
+## Configure
 
 Set environment variables.
 
