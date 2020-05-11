@@ -27,14 +27,14 @@ def main():
 
         api.update_with_media("temp_image.jpg", status="#" + hex_number)
         print(media_url)
-        r.incr('count')
+        r.incr('number')
 
         time.sleep(15 * 60) # Posts every 15 minutes
 
 
 
 if __name__ == "__main__":
-    r.incr('count')
-    color_number = int(r.get("count"))
+    r.incr('number')
+    color_number = int(r.get("number"))
     main()
 
