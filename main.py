@@ -34,7 +34,6 @@ def main():
 
 
 if __name__ == "__main__":
-    r.incr('num')
     color_number = int(r.get("num"))
     main()
 
