@@ -1,11 +1,15 @@
 import tweepy
+import redis
 import time
-import urllib.request
-import os
 
 auth = tweepy.OAuthHandler(os.environ["CONSUMER_TOKEN"], os.environ["CONSUMER_SECRET"]) # Place consumer_token and consumer_secret
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"]) # Place access_token and access_token_secret
 api = tweepy.API(auth)
+
+r = redis.Redis(
+    host=os.environ["HOST"],
+    port=7839, 
+    password=os.environ["PASSWORD"])
 
 def main():
     global color_number
@@ -21,23 +25,15 @@ def main():
 
         api.update_with_media("temp_image.jpg", status="#" + hex_number)
         print(media_url)
-        color_number = color_number + 1
-
-        f = open(os.getcwd() + "/count.txt","w+")
-        f.write(str(color_number))
-        f.close()
+        r.incr('count')
 
         time.sleep(15 * 60) # Posts every 15 minutes
 
 
 
 if __name__ == "__main__":
-    if not os.path.exists(os.getcwd() + "/count.txt"):
-        f = open(os.getcwd() + "/count.txt","w+")
-        f.write("0")
-        f.close()
-    f = open(os.getcwd() + "/count.txt", "r") 
-    color_number = int(f.read())
+    r.incr('count')
+    color_number = int(r.get("count"))
     f.close()
     main()
 
