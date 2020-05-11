@@ -1,8 +1,10 @@
-import tweepy
-import redis
+import os
 import time
 import urllib.request
-import os
+
+import redis
+import tweepy
+
 
 auth = tweepy.OAuthHandler(os.environ["CONSUMER_TOKEN"], os.environ["CONSUMER_SECRET"]) # Place consumer_token and consumer_secret
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"]) # Place access_token and access_token_secret
