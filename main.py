@@ -39,6 +39,5 @@ if __name__ == "__main__":
     f = open(os.getcwd() + "/count.txt", "r") 
     color_number = int(f.read())
     f.close()
-    print(type(color_number))
     main()
 
