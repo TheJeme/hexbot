@@ -3,8 +3,8 @@ import time
 import urllib.request
 import os
 
-auth = tweepy.OAuthHandler(CONSUMER_TOKEN, CONSUMER_SECRET) # Place consumer_token and consumer_secret
-auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET) # Place access_token and access_token_secret
+auth = tweepy.OAuthHandler(os.environ["CONSUMER_TOKEN"], os.environ["CONSUMER_SECRET"]) # Place consumer_token and consumer_secret
+auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"]) # Place access_token and access_token_secret
 api = tweepy.API(auth)
 
 def main():
