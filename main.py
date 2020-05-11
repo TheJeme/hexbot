@@ -13,7 +13,8 @@ api = tweepy.API(auth)
 r = redis.Redis(
     host=os.environ["HOST"],
     port=7839,
-    password=os.environ["PASSWORD"])
+    password=os.environ["PASSWORD"]
+)
 
 def main():
     global color_number
