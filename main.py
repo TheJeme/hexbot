@@ -12,7 +12,7 @@ api = tweepy.API(auth)
 
 r = redis.Redis(
     host=os.environ["HOST"],
-    port=7839, 
+    port=7839,
     password=os.environ["PASSWORD"])
 
 def main():
@@ -25,7 +25,7 @@ def main():
             hex_number = "0" + hex_number
 
         media_url = f"http://www.singlecolorimage.com/get/{hex_number}/500x500.png" # Path to image
-        urllib.request.urlretrieve(media_url, "temp_image.jpg")            
+        urllib.request.urlretrieve(media_url, "temp_image.jpg")
 
         api.update_with_media("temp_image.jpg", status="#" + hex_number)
         print(media_url)
@@ -38,4 +38,3 @@ def main():
 if __name__ == "__main__":
     color_number = int(r.get("num"))
     main()
-
