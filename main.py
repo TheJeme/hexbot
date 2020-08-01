@@ -16,7 +16,7 @@ api = tweepy.API(auth)
 
 r = redis.Redis(
     host=os.environ["HOST"],
-    port=24819,
+    port=os.environ["PORTTI"],
     password=os.environ["PASSWORD"]
 )
 
