@@ -27,9 +27,7 @@ Set environment variables.
 
 ### Redis credentials
 
-- `HOST`
-- `PASSWORD`
-
+- `REDIS_URL`
 
 ## Usage
 
