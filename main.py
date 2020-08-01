@@ -38,7 +38,5 @@ def main(color_number=0):
 
 
 if __name__ == "__main__":
-    r.incr('asd')
-    print(r.get('asd'))
-    #color_number = int(r.get("num"))
-    #main(color_number)
+    color_number = int(r.get("num"))
+    main(color_number)
