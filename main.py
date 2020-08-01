@@ -14,7 +14,7 @@ auth = tweepy.OAuthHandler(os.environ["CONSUMER_TOKEN"], os.environ["CONSUMER_SE
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"])
 api = tweepy.API(auth)
 
-r = redis.Redis(os.environ.get("REDIS_URL"))
+r = redis.Redis(os.environ["REDIS_URL"])
 
 
 def main(color_number=0):
@@ -38,7 +38,7 @@ def main(color_number=0):
 
 
 if __name__ == "__main__":
-    r.incrby('asd', 1)
+    r.incr('asd')
     print(r.get('asd'))
     #color_number = int(r.get("num"))
     #main(color_number)
