@@ -14,11 +14,7 @@ auth = tweepy.OAuthHandler(os.environ["CONSUMER_TOKEN"], os.environ["CONSUMER_SE
 auth.set_access_token(os.environ["ACCESS_TOKEN"], os.environ["ACCESS_TOKEN_SECRET"])
 api = tweepy.API(auth)
 
-r = redis.Redis(
-    host=os.environ["HOST"],
-    port=os.environ["PORTTI"],
-    password=os.environ["PASSWORD"]
-)
+r = redis.Redis(os.environ.get("REDIS_URL"))
 
 
 def main(color_number=0):
