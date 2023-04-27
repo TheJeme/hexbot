@@ -1,2 +1,2 @@
 tweepy==3.8.0
-redis==3.5.1
+redis==4.4.4
